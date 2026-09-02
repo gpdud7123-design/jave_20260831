@@ -7,7 +7,7 @@ public class _98_조건문참고사항 {
 		// 문자열은 같다, 다르다를 '==', '!=' 로 비교하면 안된다.
 		// 그래도 문자열 비교를 꼭 해보고 싶다면 equals() 메소르를 써야한다.
 		String gender = "남자";
-		if(gender.equals "남자") {
+		if(gender.equals ("남자")) {
 			System.out.println("남자 입니다.");
 		}
 
