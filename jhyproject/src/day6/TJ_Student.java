@@ -12,7 +12,7 @@ public class TJ_Student {
 		this.money = money;
 	}
 	
-	void classMoneyInfo() {
+	static void classMoneyInfo() {
 		System.out.println(classMoney);
 	}
 	

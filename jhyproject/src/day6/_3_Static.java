@@ -8,28 +8,23 @@ public class _3_Static {
 		TJ_Student kim = new TJ_Student("김철수", 9876, 300000);
 		
 		kim.money -= 30000;
-		 // 홍길동의 money는 영향 x, non-static => 공유되지 않는 속성들
-		System.out.println(hong.money);
+		// 홍길동의 money는 영향 x, non-static => 공유되지 않는 속성들
+		System.out.println(hong.money); 
 		
 		kim.classMoney -= 100000;
 		// static은 공유하는 값이므로 홍길동이 접근했을 때 10만원이 줄어든 상태로 출력
-		System.out.println(hong.classMoney);
+		System.out.println(hong.classMoney); 
 		
 		// static은 클래스 이름으로도 접근이 가능
 		// non-static 클래스 이름으로 접근 불가능(객체 생성 후 접근)
 //		TJ_Student.money = 10;
+		
 		TJ_Student.classMoney += 50000;
 		System.out.println(TJ_Student.classMoney);
 		
-			void classMoneyInfo() {
-			System.out.println("남은 회비 :" + classMoney);
-		}
+		kim.classMoneyInfo();
 		
-		static void moneyInfo () {
-			// static멤버에서는 non-static멤버에 접근이 불가능하다.
-			// non-static멤버는 객체를 만든 이후에 의미가 있기 때문에
-			System.out.println("남은 금액 : " + money);
-		}
+		TJ_Student.classMoneyInfo();
 		
 
 	}
