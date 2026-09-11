@@ -25,7 +25,6 @@ public class _5_json {
 			System.out.print("db 점수 : ");
 			int db = scan.nextInt();
 			map.put("db", db);
-			
 			list.add(map);
 			System.out.println(" ============");
 		}
