@@ -15,7 +15,7 @@ public class _5_성적관리프로그램 {
 
 		System.out.println("======= 성적관리 프로그램 =======");
 		while (true) {
-			System.out.print("[ (1) 성적등록 (2) 성적확인 (3) 성적순위 (그 외) 종료 ] : ");
+			System.out.print("[ (1) 성적등록 (2) 성적확인 (3) 성적순위 (4) 성적수정 (5) 삭제 (그 외) 종료 ] : ");
 			int menu = scan.nextInt();
 			if (menu == 1) {
 				// 메뉴 1번에 대한 조건
@@ -135,12 +135,56 @@ public class _5_성적관리프로그램 {
 				
 				for(int i=0; i<socreArr.length; i++) {
 					System.out.println((i+1) + " 등 : " + stuNoList[i] + ", " + scoreArr[i] + " 점 ");
+				}else if (menu == 4) {
+					// 학번을 입력받아서 해당 학번이 없으면 '학번을 확인해주세요' 출력
+					boolean stuNo = false;
+					System.out.print("학번 입력 : ");
+					String stuNo = scan.next();
+					else {
+						System.out.println("학번을 확인해주세요");
+						stuNo = true;
+						break;
+					}
+					// 메뉴로 이동
+					// 있는 학번이면 '자바', 'db', 'html' 점수를 다시 입력받아서
+					for (HashMap<String, Object> map : list) {
+						if (map.containsKey("input") && map.get("input").equals(list)) {
+							
+						}
+						}
+					// 해당 점수로 저장
+					
+					// 자바, db, html의 점수 범위는 1번 메뉴와 같다.
+					
+					}
+				} else if (menu == 5) {
+					// 학번을 입력받아서 해당 학번이 없으면 '학번을 확인해주세요' 출력
+					boolean stuNo = false;
+					System.out.print("학번 입력 : ");
+					String stuNo = scan.next();
+					else {
+						System.out.println("학번을 확인해주세요");
+						stuNo = true;
+						break;
+					}
+					// 메뉴로 이동
+					
+					// 있는 학번인 경우 '정말 삭제?'(Y or N) 물어보고
+					System.out.println("삭제 Y or N"); //투어퍼케이스는 대문자로다바꿔줌 toUpperCase
+					// Y(대문자, 소문자 모두 포함)를 누르면 해당 학번 가진 정보 삭제
+					// 그 외 문자 입력 시 '취소되었습니다' 출력 후 메뉴로 이동
+					if()
+					System.out.println("취소되었습니다");
+					
+					
+				}
+			
 				}
 				
-		        
+	}
 			
 		}
 
-	
+
 
 }
