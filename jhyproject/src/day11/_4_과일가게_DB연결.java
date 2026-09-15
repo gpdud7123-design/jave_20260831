@@ -16,12 +16,12 @@ public class _4_과일가게_DB연결 {
 		// 2. 없는 과일이면 과일 이름, 가격, 개수를 입력받아서
 		// db에 저장
 		// 3. 가격과 개수를 입력받을 때는 0이하의 숫자를 입력할 경우
-		// 경고 후 다시 입력하도록 while?
+		// 경고 후 다시 입력하도록
 
 		try {
 			System.out.print("과일 이름 : ");
 			String fruitName = "'" + s.next() + "'";
-			String sql = "SELECT * FROM FRUIT WHERE FRUIT+NAME = " + fruitName;
+			String sql = "SELECT * FROM FRUIT WHERE FRUIT_NAME = " + fruitName;
 			ResultSet rs = stmt.executeQuery(sql);
 			if (rs.next()) {
 				System.out.println("이미 존재하는 과일입니다.");
@@ -54,7 +54,7 @@ public class _4_과일가게_DB연결 {
 		try {
 			System.out.print("과일 이름 : ");
 			String fruitName = "'" + s.next() + "'";
-			String sql = "SELECT * FROM FRUIT WHERE FRUIT+NAME = " + fruitName;
+			String sql = "SELECT * FROM FRUIT WHERE FRUIT_NAME = " + fruitName;
 			ResultSet rs = stmt.executeQuery(sql);
 
 			if (rs.next()) {
@@ -83,6 +83,46 @@ public class _4_과일가게_DB연결 {
 
 	public static void sellFruit() {
 		System.out.println("=== 과일 판매 ===");
+		// 1. 판매할 과일 이름 입력 받기
+		//    해당과일 db에 없으면 없다는 문구 출력 후 메뉴로 이동
+		// 2. 과일이 있을 경우 현재 개수 알려주고 구매할 개수 입력받기
+		// 3. 구매 개수는 1이상, 현재개수보다 작은 숫자 입력받기
+		//    해당 범위 벗어날 경우 안내문구 후 다시 입력하도록 유도
+		// 4. 정상 범위 입력했을 경우 기존 개수에서 차감 후 종료
+		try {
+			System.out.print("판매할 과일 이름 : ");
+			String fruitName = "'" + s.next() + "'";
+			String sql = "SELECT * FROM FRUIT WHERE FRUIT_NAME = " + fruitName;
+			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				int cnt = rs.getInt("CNT");
+				System.out.println("현재 과일은 " + rs.getInt("CNT") + "개 있습니다.");
+				System.out.print("구매할 개수 : ");
+				int buyCnt = MyFunction.checkNumber("구매할개수 : ", 1, cnt);
+				
+				String updateSql = "UPDATE FRUIT SET" + "CNT = " + (cnt - buyCnt) + "WHERE FRUIT_NAME =" + fruitName;
+				
+				int result = stmt.executeUpdate(updateSql);
+				if(result > 0) {
+					System.out.println("판매되었습니다");
+				} else {
+					System.out.println("오류가 발생했습니다");
+				}
+				
+			} else {
+				System.out.println("해당 과일 없습니다.");
+			}
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		
+		
+		
+		
 	}
 
 	public static void checkFruit() {
@@ -91,7 +131,7 @@ public class _4_과일가게_DB연결 {
 			System.out.print("과일 이름 : ");
 			String fruitName = "'" + s.next() + "'";
 
-			String sql = "SELECT * FROM FRUIT WHERE FRUIT+NAME = " + fruitName;
+			String sql = "SELECT * FROM FRUIT WHERE FRUIT_NAME = " + fruitName;
 			ResultSet rs = stmt.executeQuery(sql);
 
 			if (rs.next()) {
