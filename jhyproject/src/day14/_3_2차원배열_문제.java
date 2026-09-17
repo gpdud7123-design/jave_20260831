@@ -13,7 +13,7 @@ public class _3_2차원배열_문제 {
 		int sum = 0;
 		for(int i=0; i<arr.length; i++) {
 			for(int j=0; j<arr[i].length; j++) {
-				if(i == 0 || i == arr.length-1 || j == 0 || j == arr[i].length-1) {
+				if(i == 0 || i == arr.length-1 || j == 0 || j == arr[i].length-1) { //가장자리가로세로더하는거
 					sum += arr[i][j];
 				}
 			}
