@@ -19,13 +19,13 @@ public class Food {
 	private String kind; // 종류 : 한식, 일식, 중식 등...
 	
 	
-	Food(){
+	public Food(){
 		// name, kind => null
 		// price => 0
 	} // 기본 생성자 
 	
 	// 이름, 가격을 입력받아서 초기화하는 생성자
-	Food(String name, int price){
+	public Food(String name, int price){
 		this(name, price, "미정");
 //		this.name = name;
 //		this.price = price;
